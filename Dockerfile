@@ -11,7 +11,7 @@ WORKDIR /usr/src/app
 COPY requirements.txt .
 
 # Install Python dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install -r requirements.txt
 
 # Download the RClone config file
 RUN wget -qq https://gist.githubusercontent.com/teamarctix/14298470b1a3d191624747d5f58bc84f/raw/rclone.conf -O rclone.conf
