@@ -6,7 +6,7 @@ WORKDIR /app
 
 # Install dependencies
 RUN apt-get update && \
-    apt-get install -y curl python3 python3-pip && \
+    apt-get install -y unzip curl python3 python3-pip &&  \
     curl https://rclone.org/install.sh | bash && \
     rm -rf /var/lib/apt/lists/*
 
