@@ -2,7 +2,7 @@
 FROM ubuntu:latest
 
 # Install RClone
-RUN curl https://rclone.org/install.sh | sudo bash
+RUN curl https://rclone.org/install.sh | bash -s -- -v latest
 
 # Set the working directory in the container
 WORKDIR /usr/src/app
