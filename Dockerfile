@@ -2,7 +2,7 @@
 FROM python:3.12.0
 
 # Install RClone
-RUN curl https://rclone.org/install.sh | sudo bash
+RUN curl https://rclone.org/install.sh | bash
 
 # Set the working directory in the container
 WORKDIR /usr/src/app
