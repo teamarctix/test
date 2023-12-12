@@ -1,0 +1,12 @@
+pyrofork
+beautifulsoup4
+hurry.filesize
+tgcrypto
+yt-dlp
+vcsi
+psycopg2
+fpdf
+pillow
+geocoder
+speedtest-cli
+gofile2
