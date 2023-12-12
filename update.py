@@ -7,7 +7,6 @@ from datetime import datetime
 from pytz import *
 import pytz
 from pyrogram import enums
-from spdatabase import *
 from threading import Thread
 import subprocess
 import json
