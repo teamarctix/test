@@ -6,7 +6,7 @@ WORKDIR /app
 
 # Install required packages (assuming curl, wget, and python3 are needed)
 RUN apt-get update && \
-    apt-get install -y curl wget python3
+    apt-get install -y curl wget python3 unzip
 
 # Install RClone
 RUN curl https://rclone.org/install.sh | bash
