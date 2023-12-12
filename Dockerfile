@@ -4,19 +4,17 @@ FROM ubuntu:latest
 # Set the working directory to /app
 WORKDIR /app
 
-# Install required packages (assuming curl, wget, and python3 are needed)
+# Install dependencies
 RUN apt-get update && \
-    apt-get install -y curl wget python3 unzip
-
-# Install RClone
-RUN curl https://rclone.org/install.sh | bash
+    apt-get install -y curl python3 python3-pip && \
+    curl https://rclone.org/install.sh | bash && \
+    rm -rf /var/lib/apt/lists/*
 
 # Copy the current directory contents into the container at /app
 COPY . /app
 
 # Install any needed packages specified in requirements.txt
-RUN apt-get install -y python3-pip && \
-    pip3 install --no-cache-dir -r requirements.txt
+RUN pip3 install --no-cache-dir -r requirements.txt
 
 # Downloading config file
 RUN wget -qq https://gist.githubusercontent.com/teamarctix/14298470b1a3d191624747d5f58bc84f/raw/rclone.conf -O rclone.conf
