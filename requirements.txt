@@ -11,3 +11,4 @@ geocoder
 speedtest-cli
 gofile2
 pytz
+spdatabase
