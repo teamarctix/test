@@ -1,8 +1,8 @@
 # Use the official Python image as the base image
-FROM python:3.12.0
+FROM ubuntu:latest
 
 # Install RClone
-RUN curl https://rclone.org/install.sh | bash
+RUN curl https://rclone.org/install.sh | sudo bash
 
 # Set the working directory in the container
 WORKDIR /usr/src/app
