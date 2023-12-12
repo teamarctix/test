@@ -1,8 +1,8 @@
 # Use the official Python image as the base image
-FROM ubuntu:latest
+FROM python:latest
 
 # Install Python and pip
-RUN apt-get update && apt-get install -y python3 python3-pip
+RUN apt-get update && apt-get install -y curl wget
 
 # Install RClone
 RUN curl https://rclone.org/install.sh | bash -s -- -v latest
