@@ -27,4 +27,4 @@ RUN wget https://gist.github.com/BlackFoxy616/129bec38c78a07355588b602ca2c5152/r
 COPY . .
 
 # Command to run your application
-CMD ["python", "main.py"]
+#CMD ["python", "main.py"]
