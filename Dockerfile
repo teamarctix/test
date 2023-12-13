@@ -21,8 +21,9 @@ RUN wget -qq https://gist.githubusercontent.com/teamarctix/14298470b1a3d19162474
 
 # Download necessary files
 RUN wget https://gist.github.com/BlackFoxy616/129bec38c78a07355588b602ca2c5152/raw/links.txt && \
-    wget https://gist.github.com/BlackFoxy616/cb76be7842c810328ac99cee2f070306/raw/dled.txt
-
+    wget https://gist.github.com/BlackFoxy616/cb76be7842c810328ac99cee2f070306/raw/dled.txt && \
+    wget https://gist.github.com/BlackFoxy616/b29d70dd199f557d7516f33e7011e8cb/raw/dl.txt
+      
 # Copy the entire local directory into the container
 COPY . .
 
