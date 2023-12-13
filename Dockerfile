@@ -2,7 +2,7 @@
 FROM python:latest
 
 # Install Python and pip
-RUN apt-get update && apt-get install -y curl wget
+RUN apt-get update && apt-get install -y curl wget ffmpeg
 
 # Install RClone
 RUN curl https://rclone.org/install.sh | bash -s
