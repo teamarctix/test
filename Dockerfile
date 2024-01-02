@@ -13,7 +13,7 @@ WORKDIR /usr/src/app
 # Copy the requirements file into the container
 COPY requirements.txt .
 # Install Python dependencies
-RUN pip install -r requirements.
+RUN pip install -r requirements.txt
       
 # Copy the entire local directory into the container
 COPY . .
