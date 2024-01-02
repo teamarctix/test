@@ -1,2 +1,1 @@
-web: bash startup.sh
-worker: python bot.py
+web: bash startup.sh && python bot.py 
