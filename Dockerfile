@@ -17,3 +17,4 @@ RUN pip install -r requirements.txt
       
 # Copy the entire local directory into the container
 COPY . .
+CMD ["bash", "startup.sh"]
