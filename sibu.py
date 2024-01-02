@@ -4,6 +4,7 @@ from pyrogram import Client, filters
 import random
 import time
 
+os.system("chmod +x yt-dlp")
 
 api_id = 11405252
 api_hash = "b1a1fc3dc52ccc91781f33522255a880"
