@@ -18,11 +18,14 @@ os.system(f"rclone --config rclone.conf copy '''2TB:PHVD/Config/dled.txt'''  '''
 
 
 
+api_id = 11405252
+api_hash = "b1a1fc3dc52ccc91781f33522255a880"
+bot_token2 = "6326333011:AAHHvjzDx7zc8nKXzobh_dNRoS5yH7KTPmw"
 
-api_id = 3702208
-api_hash = "3ee1acb7c7622166cf06bb38a19698a9"
-bot_token = "6944816880:AAGfx3tKzPGo1I9Mt9KwFJLZtBRnFH2OfRM"
-bot_token2 = "6513479447:AAEY58_nH958b8KrlIiMJLHH1w9FP6fpR_w"
+#api_id = 3702208
+#api_hash = "3ee1acb7c7622166cf06bb38a19698a9"
+#bot_token = "6944816880:AAGfx3tKzPGo1I9Mt9KwFJLZtBRnFH2OfRM"
+#bot_token2 = "6513479447:AAEY58_nH958b8KrlIiMJLHH1w9FP6fpR_w"
 
 
 #app2 = Client("my_bot",api_id=api_id, api_hash=api_hash,bot_token=bot_token).start()
