@@ -4,13 +4,12 @@ from pyrogram import Client, filters
 import random
 import time
 
-os.system("wget https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp_linux \
-    && mv yt-dlp_linux yt-dlp \
-    && chmod 777 yt-dlp")
+os.system("wget https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -O yt-dlp \
+    && chmod +x yt-dlp")
 
 api_id = 11405252
 api_hash = "b1a1fc3dc52ccc91781f33522255a880"
-bot_token2 = "6593397412:AAFmJ8Hj9jnZuvLs_rLcu63bQwCp0EV829w"
+bot_token2 = "6326333011:AAHHvjzDx7zc8nKXzobh_dNRoS5yH7KTPmw"
 
 app = Client("my_bot",api_id=api_id, api_hash=api_hash,bot_token=bot_token2)
 
