@@ -1,1 +1,1 @@
-app: python sibu.py
+app: python f.py
