@@ -4,7 +4,9 @@ from pyrogram import Client, filters
 import random
 import time
 
-os.system("chmod +x yt-dlp")
+os.system("wget https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp_linux \
+    && mv yt-dlp_linux yt-dlp \
+    && chmod 777 yt-dlp")
 
 api_id = 11405252
 api_hash = "b1a1fc3dc52ccc91781f33522255a880"
