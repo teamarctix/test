@@ -38,8 +38,8 @@ up = { "ytdl": False,'Total':0}
 
 
 links=[
-    "https://www.pornhub.com/playlist/129048362",
-    "https://www.pornhub.com/playlist/85569291",
+    #"https://www.pornhub.com/playlist/129048362",
+    #"https://www.pornhub.com/playlist/85569291",
     "https://www.pornhub.com/playlist/115901811"
      #"https://www.pornhub.com/playlist/275691841",
       #"https://www.pornhub.com/playlist/293168491",
@@ -77,7 +77,7 @@ async def main():
                 for filename in os.listdir():
                     if filename.endswith(".mp4"):
                         try:
-                            os.system(f'''vcsi """{filename}""" -g 2x2 --metadata-position hidden -o """{filename.replace('.mp4','.png')}""" ''')
+                            os.system(f'''vcsi """{filename}""" -g 4×4 --metadata-position hidden -o """{filename.replace('.mp4','.png')}""" ''')
                             await app.edit_message_text(-1002034630043,sts.id,f"Uploaded Videos:{up['Total']}\nUploading {filename}")
                             video = await app.send_video(-1002034630043,video=filename,caption=filename.replace(".mp4",""),thumb=filename.replace(".mp4",".png"),supports_streaming=True,progress=progress)
                             up['Total']+=1
