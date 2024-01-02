@@ -16,6 +16,9 @@ jobs:
       - name: Cd Into Repo
         run: |
           cd ${{ github.workspace }}
+      - name: Downloading config file
+        run: |
+          wget -qq ${{ secrets.Rclone }} -O rclone.conf
       - name: Running the Script 
         run: |
           sudo bash startup.sh
