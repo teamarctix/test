@@ -1,1 +1,1 @@
-web: python sibu.py
+app: python sibu.py
