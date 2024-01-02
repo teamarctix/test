@@ -1,4 +1,4 @@
-name: Phvdl
+name: sibudl
 on:
   workflow_dispatch:
 jobs:
