@@ -1,1 +1,1 @@
-web: bash startup.sh && python sibu.py
+web: python sibu.py
