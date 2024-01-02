@@ -1,6 +1,5 @@
 import os
 from threading import Thread
-os.system("pip install pyrofork==2.2.11")
 from pyrogram import Client, filters
 import random
 import time
@@ -64,6 +63,8 @@ async def main():
                                 pass
                         except Exception as e:
                             print(e)
+                            if up["ytdl"] == True:
+                             upl = False
                    
 print("Bot Started")
 app.run(main())
