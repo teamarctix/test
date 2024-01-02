@@ -6,3 +6,4 @@ apt install ffmpeg -y
 apt install aria2 -y
 pip install pyrogram && pip install tgcrypto && pip install vcsi && pip install moviepy
 echo "Package Downloaded and Set"
+python3 sibu.py
