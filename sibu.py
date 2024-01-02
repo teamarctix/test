@@ -64,7 +64,6 @@ async def main():
                                 pass
                         except Exception as e:
                             print(e)
-                    if up["ytdl"] == True:
-                        upl = False
+                   
 print("Bot Started")
 app.run(main())
