@@ -5,7 +5,6 @@ FROM python:latest
 RUN apt-get update && apt-get install -y curl wget ffmpeg
 
 # Install RClone
-RUN curl https://rclone.org/install.sh | bash -s
 
 # Set the working directory in the container
 WORKDIR /usr/src/app
