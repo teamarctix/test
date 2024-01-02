@@ -1,1 +1,1 @@
-app: chmod +x yt-dlp && python sibu.py
+app: python sibu.py
