@@ -39,7 +39,7 @@ async def progress(current, total, task_name="Task"):
 
 def ytdlpp(link):
      #time.sleep(2)
-     os.system("""./yt-dlp --downloader aria2c --match-filter "duration>180"   --max-downloads  200  -N 10 -o '%(title)s.%(ext)s' -f '(mp4)[height=?720]' --write-thumbnail --embed-metadata """ + link )
+     os.system("""yt-dlp.exe --downloader aria2c --match-filter "duration>180"   --max-downloads  200  -N 10 -o '%(title)s.%(ext)s' -f '(mp4)[height=?720]' --write-thumbnail --embed-metadata """ + link )
      print(f"Download Completed{link}")
      time.sleep(120)
      up["ytdl"] = True
