@@ -27,15 +27,3 @@ jobs:
         run: |
           echo "Token: ${{ needs.get-temp-token.outputs.token }}"
           echo "GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}"
-
-      - name: Create Release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ needs.get-temp-token.outputs.token }}
-        with:
-          tag_name: v1.0.0
-          release_name: Release v1.0.0
-          body: 'Release notes for v1.0.0'
-          draft: false
-          prerelease: false
-          
