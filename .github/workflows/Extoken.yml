@@ -15,6 +15,8 @@ jobs:
           application_id: ${{ secrets.APPLICATION_ID }}
           application_private_key: ${{ secrets.APPLICATION_PRIVATE_KEY }}
           permissions: "actions:write"     
+      - name: Set Token
+        run: echo "TEMP_TOKEN=${{ steps.get_workflow_token.outputs.token }}" >> $GITHUB_ENV
       - name: Print Environment Variables
-        run: echo "Token: ${{ steps.get_workflow_token.outputs.token }}"
-          
+        run: |
+          echo "Token: ${{ secrets.TEMP_TOKEN }}"
