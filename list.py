@@ -18,5 +18,9 @@ collection = db[collection_name]
 cursor = collection.find()
 df = pd.DataFrame(list(cursor))
 
+# Adjust display options
+pd.set_option('display.max_rows', None)
+pd.set_option('display.max_columns', None)
+
 # Display the DataFrame
 print(df)
