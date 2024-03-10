@@ -14,16 +14,7 @@ jobs:
         with:
           application_id: ${{ secrets.APPLICATION_ID }}
           application_private_key: ${{ secrets.APPLICATION_PRIVATE_KEY }}
-          permissions: "actions:write"
-
-  create-release:
-    needs: get-temp-token
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+          permissions: "actions:write"     
       - name: Print Environment Variables
-        run: |
-          echo "Token: ${{ needs.get-temp-token.outputs.token }}"
-          echo "GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}"
+        run: echo "Token: ${{ steps.get_workflow_token.outputs.token }}"
+          
