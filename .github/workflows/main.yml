@@ -6,13 +6,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: '${{ github.head_ref }}'
           fetch-depth: 0
           token: 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
-      - name: Checkout Repository
-        uses: actions/checkout@v4
       - name: install Mongo and requests
         run: pip install pymongo requests pandas
       - name: Run Python script
