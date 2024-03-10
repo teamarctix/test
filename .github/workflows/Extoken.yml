@@ -1,0 +1,43 @@
+name: Release Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  get-temp-token:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Get Token
+        id: get_workflow_token
+        uses: peter-murray/workflow-application-token-action@v3
+        with:
+          application_id: ${{ secrets.APPLICATION_ID }}
+          application_private_key: ${{ secrets.APPLICATION_PRIVATE_KEY }}
+          permissions: "actions:write"
+
+  create-release:
+    needs: get-temp-token
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Print Environment Variables
+        run: |
+          echo "Token: ${{ needs.get-temp-token.outputs.token }}"
+          echo "GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}"
+
+      - name: Create Release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ needs.get-temp-token.outputs.token }}
+        with:
+          tag_name: v1.0.0
+          release_name: Release v1.0.0
+          body: 'Release notes for v1.0.0'
+          draft: false
+          prerelease: false
+          
