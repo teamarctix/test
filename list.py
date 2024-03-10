@@ -15,12 +15,11 @@ db = client[database_name]
 collection = db[collection_name]
 
 # Query MongoDB and convert the result to a DataFrame
-cursor = collection.find()
+cursor = collection.find({}, {'_id': 0})  # Exclude the "_id" field
 df = pd.DataFrame(list(cursor))
 
-# Adjust display options
-pd.set_option('display.max_rows', None)
-pd.set_option('display.max_columns', None)
+# Display the DataFrame in a structured table format
+table = df.to_string(index=False, justify='center')
 
-# Display the DataFrame
-print(df)
+# Print the formatted table
+print(table)
