@@ -7,7 +7,7 @@ mongo_uri = 'mongodb+srv://mongo:mongo@mongo.1ics4jt.mongodb.net/?retryWrites=tr
 client = MongoClient(mongo_uri)
 
 # Replace the placeholders with your database and collection names
-database_name = 'wzmlx'
+database_name = 'mltb'
 collection_name = 'data'
 
 # Access the specified database and collection
@@ -25,4 +25,4 @@ html_table = df.to_html(index=False)
 with open('table.html', 'w') as file:
     file.write(html_table)
 
-print("HTML file 'output_table.html' generated successfully.")
+print("HTML file 'table.html' generated successfully.")
