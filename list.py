@@ -18,8 +18,11 @@ collection = db[collection_name]
 cursor = collection.find({}, {'_id': 0})  # Exclude the "_id" field
 df = pd.DataFrame(list(cursor))
 
-# Display the DataFrame in a structured table format
-table = df.to_string(index=False, justify='center')
+# Convert the DataFrame to an HTML file
+html_table = df.to_html(index=False)
 
-# Print the formatted table
-print(table)
+# Save the HTML file
+with open('table.html', 'w') as file:
+    file.write(html_table)
+
+print("HTML file 'output_table.html' generated successfully.")
