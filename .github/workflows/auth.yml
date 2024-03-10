@@ -1,11 +1,11 @@
-name: auth token
+name: Auth
 
 on:
   workflow_dispatch:
 
 jobs:
   Test:
-    # Specify the type of runner that the job will run on (remove "self-hosted")
+    # The type of runner that the job will run on
     runs-on: [ubuntu-latest]
 
     steps:
