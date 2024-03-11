@@ -2,9 +2,6 @@ import requests
 from datetime import datetime
 import os
 
-
-
-
 def get_forks(repo_link):
     try:
         # Adding the access token to the headers for authentication
@@ -81,7 +78,7 @@ def save_token_to_env(token):
         print(f"Error saving token to .env file: {e}")
 
 # Example usage with access token from environment variable and saving to a TXT file
-repo_link = "https://api.github.com/repos/weebzone/WZML-X/forks"
+repo_link = "https://api.github.com/repos/anasty17/mirror-leech-telegram-bot/forks"
 result = get_forks(repo_link)
 
 if result:
