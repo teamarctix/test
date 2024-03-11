@@ -23,6 +23,7 @@ async def send_github_token():
     finally:
         # Stop the code after sending the message
         await app.stop()
+        sys.exit()
 
 @app.on_message(filters.private & filters.command("sendtoken"))
 async def send_token_command(client, message):
@@ -30,3 +31,4 @@ async def send_token_command(client, message):
 
 if __name__ == "__main__":
     app.run()
+    
