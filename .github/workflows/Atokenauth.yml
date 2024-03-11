@@ -1,10 +1,12 @@
-name: Create Fork For MLTB
+name: fork
 on:
   workflow_dispatch: null  
 jobs:
   get-temp-token:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
       - name: Get Token
         id: get_workflow_token
         uses: peter-murray/workflow-application-token-action@v3
