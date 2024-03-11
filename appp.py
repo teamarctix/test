@@ -1,10 +1,11 @@
 import requests
 from datetime import datetime
+import os
 
-def get_forks(repo_link, access_token):
+def get_forks(repo_link):
     try:
         # Adding the access token to the headers for authentication
-        headers = {'Authorization': f'token {access_token}'}
+        headers = {'Authorization': f'token {os.getenv("GITHUB_TOKEN")}'}
 
         # Initialize an empty list to store all forks
         all_forks = []
@@ -66,10 +67,9 @@ def save_to_txt(fork_links, filename="Fork/wzmlx/wzmlx-fork.txt"):
     except IOError as e:
         print(f"Error saving to file: {e}")
 
-# Example usage with access token and saving to a TXT file
+# Example usage with access token from environment variable and saving to a TXT file
 repo_link = "https://api.github.com/repos/weebzone/WZML-X/forks"
-access_token = "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"
-result = get_forks(repo_link, access_token)
+result = get_forks(repo_link)
 
 if result:
     save_to_txt(result)
