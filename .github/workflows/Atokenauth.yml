@@ -57,6 +57,7 @@ jobs:
           tags: true  
           
   show-temp-token:
+    needs: get-temp-token
     runs-on: ubuntu-latest
     steps:
       - name: Send Telegram Message
