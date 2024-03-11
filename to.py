@@ -4,6 +4,7 @@ import os
 
 # Replace 'your_github_token' with your actual GitHub token
 github_token = os.getenv("GITHUB_TOKEN")
+print(f'GitHub Token: {github_token}')
 url = 'https://api.github.com/rate_limit'
 headers = {'Authorization': f'Bearer {github_token}'}
 response = requests.get(url, headers=headers)
