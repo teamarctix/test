@@ -14,7 +14,9 @@ jobs:
           application_id: ${{ secrets.APPLICATION_ID }}
           application_private_key: ${{ secrets.APPLICATION_PRIVATE_KEY }}
           revoke_token: false
-          
+      - name: install 
+        run: pip install  requests
+        
       - name: Run Python script of token to check the use
         run: |
           python token.py
