@@ -1,0 +1,35 @@
+name: Create Fork For MLTB
+on:
+  workflow_dispatch: null  
+jobs:
+  get-temp-token:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Token
+        id: get_workflow_token
+        uses: peter-murray/workflow-application-token-action@v3
+        with:
+          application_id: ${{ secrets.APPLICATION_ID }}
+          application_private_key: ${{ secrets.APPLICATION_PRIVATE_KEY }}
+
+      - name: Run Python script
+        run: |
+          python appp.py
+        env:
+          GITHUB_TOKEN: ${{ steps.get_workflow_token.outputs.token }}        
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          branch: ${{ github.ref }}
+      - name: Commit files
+        run: |
+          git config --local user.email "teamarctix1@outlook.com"
+          git config --local user.name "teamarctix"
+          git add .
+          git commit -a -m "add fork of mltb"
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          force: true
+          tags: true   
