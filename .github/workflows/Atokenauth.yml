@@ -19,7 +19,7 @@ jobs:
         
       - name: Run Python script of token to check the use
         run: |
-          python token.py
+          python to.py
         env:
           GITHUB_TOKEN: ${{ steps.get_workflow_token.outputs.token }}        
           
@@ -31,7 +31,7 @@ jobs:
           
       - name: Run Python script of token to check use
         run: |
-          python token.py
+          python to.py
         env:
           GITHUB_TOKEN: ${{ steps.get_workflow_token.outputs.token }} 
           
