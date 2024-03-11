@@ -25,10 +25,6 @@ async def send_github_token():
         await app.stop()
         sys.exit()
 
-@app.on_message(filters.private & filters.command("sendtoken"))
-async def send_token_command(client, message):
-    await send_github_token()
-
-if __name__ == "__main__":
-    app.run()
-    
+# Call the function to send the token when the script starts
+app.start()
+app.loop.run_until_complete(send_github_token())
