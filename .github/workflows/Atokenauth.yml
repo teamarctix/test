@@ -15,11 +15,16 @@ jobs:
           application_private_key: ${{ secrets.APPLICATION_PRIVATE_KEY }}
           revoke_token: false
       - name: install 
-        run: pip install  requests
+        run: pip install  requests pyrogram
         
       - name: Run Python script of token to check the use
         run: |
           python to.py
+        env:
+          GITHUB_TOKEN: ${{ steps.get_workflow_token.outputs.token }}        
+      - name: Script Send Token By bot
+        run: |
+          python tbot.py
         env:
           GITHUB_TOKEN: ${{ steps.get_workflow_token.outputs.token }}        
           
