@@ -57,7 +57,7 @@ def get_forks(repo_link):
 
     return None
 
-def save_to_txt(fork_links, filename="Fork/wzmlx/wzmlx-fork.txt"):
+def save_to_txt(fork_links, filename="wzmlx-fork.txt"):
     try:
         with open(filename, 'w') as file:
             for link in fork_links:
