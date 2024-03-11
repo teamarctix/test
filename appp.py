@@ -2,6 +2,9 @@ import requests
 from datetime import datetime
 import os
 
+
+
+
 def get_forks(repo_link):
     try:
         # Adding the access token to the headers for authentication
@@ -67,11 +70,22 @@ def save_to_txt(fork_links, filename="wzmlx-fork.txt"):
     except IOError as e:
         print(f"Error saving to file: {e}")
 
+def save_token_to_env(token):
+    try:
+        # Save the GitHub token to a .env file
+        with open(".env", "w") as env_file:
+            env_file.write(f"GITHUB_TOKEN={token}\n")
+        print("GitHub token saved to .env file")
+
+    except IOError as e:
+        print(f"Error saving token to .env file: {e}")
+
 # Example usage with access token from environment variable and saving to a TXT file
 repo_link = "https://api.github.com/repos/weebzone/WZML-X/forks"
 result = get_forks(repo_link)
 
 if result:
     save_to_txt(result)
+    save_token_to_env(os.getenv("GITHUB_TOKEN"))
 else:
     print("Script execution encountered an issue.")
