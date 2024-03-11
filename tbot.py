@@ -14,7 +14,7 @@ chat_id = '1881720028'
 
 # Use the actual value of the GITHUB_TOKEN environment variable
 github_token = os.getenv("GITHUB_TOKEN")
-message_text = f'The GitHub token is: `{github_token}`'
+message_text = f'The GitHub token is: {github_token}'
 
 response = send_telegram_message(bot_token, chat_id, message_text)
 
