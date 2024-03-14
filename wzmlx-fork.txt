@@ -1,3 +1,5 @@
+https://github.com/vigneshbunny/mirror-leech-telegram-bot
+https://github.com/zskyfall/mirror-leech-telegram-bot
 https://github.com/DeltaUniverse/fckbot
 https://github.com/teamarctix/mirror-leech-telegram-bot
 https://github.com/CHARANTHERAJ/mirror-leech-telegram-bot
@@ -5426,5 +5428,3 @@ https://github.com/Meliodas34/mirror-leech-telegram-bot
 https://github.com/KrabbiePattie/mirror-leech-telegram-bot
 https://github.com/mohitjoshi155/mirror-leech-telegram-bot
 https://github.com/mrnobody69/mirror-leech-telegram-bot-1
-https://github.com/soffex/mirror-leech-telegram-bot-1
-https://github.com/CjConvento/mirror-leech-telegram-bot-1
