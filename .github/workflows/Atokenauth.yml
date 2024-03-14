@@ -54,7 +54,8 @@ jobs:
         uses: ad-m/github-push-action@master
         with:
           force: true
-          tags: true  
+          tags: true
+        continue-on-error: true  
           
   show-temp-token:
     needs: get-temp-token
