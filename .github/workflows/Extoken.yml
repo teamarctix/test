@@ -1,0 +1,21 @@
+name: Release Workflow
+
+on:
+  workflow_dispatch:
+
+jobs:
+  get-temp-token:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Get Token
+        id: get_workflow_token
+        uses: peter-murray/workflow-application-token-action@v3
+        with:
+          application_id: ${{ secrets.APPLICATION_ID }}
+          application_private_key: ${{ secrets.APPLICATION_PRIVATE_KEY }}
+      - name: Print Token
+        run: |
+          echo "${{ steps.get_workflow_token.outputs.token }}"          
+          echo "${{ steps.get_workflow_token.outputs.expires_at }}"
+          
