@@ -1,0 +1,28 @@
+name: LIST Show
+on:
+  workflow_dispatch: null  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          ref: '${{ github.head_ref }}'
+          fetch-depth: 0
+          token: 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
+      - name: install Mongo and requests
+        run: pip install pymongo requests pandas
+      - name: Run Python script
+        run: python list.py  
+      - name: Commit files
+        run: |
+          git config --local user.email "teamarctix1@outlook.com"
+          git config --local user.name "teamarctix"
+          git add .
+          git commit -a -m "Getting this Error in mltb sync"
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          force: true
+          tags: true

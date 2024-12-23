@@ -1,0 +1,50 @@
+import asyncio
+import logging
+import os
+from importlib import import_module
+from logging import FileHandler, StreamHandler, INFO, basicConfig, error as log_error, info as log_info
+from logging import getLogger, FileHandler, StreamHandler, INFO, basicConfig, error as log_error, info as log_info, warning as log_warning
+from os import path as ospath, environ, remove
+import time
+from time import sleep, time
+from config import API_ID, API_HASH, BOT_TOKEN
+from dotenv import load_dotenv
+from dotenv import load_dotenv, dotenv_values
+from pyrogram import Client, enums
+from apscheduler.schedulers.asyncio import AsyncIOScheduler
+from tzlocal import get_localzone
+
+
+
+LOGGER = getLogger(__name__)
+
+load_dotenv('.env', override=True)
+
+basicConfig(format="[%(asctime)s] [%(levelname)s] - %(message)s - [%(filename)s, %(lineno)d]", datefmt="%d-%b-%y %I:%M:%S %p", handlers=[FileHandler('Arctix-log.txt'), StreamHandler()], level=INFO)
+
+
+API_ID = os.getenv('API_ID')
+API_HASH = os.getenv('API_HASH')
+BOT_TOKEN = os.getenv('BOT_TOKEN')
+
+Arctix = Client(
+    "arctix",
+    api_id=API_ID,
+    api_hash=API_HASH,
+    bot_token=BOT_TOKEN,
+    workers = 1000, 
+    parse_mode = enums.ParseMode.HTML
+)
+
+for file in os.listdir():
+    if file.endswith(".session"):
+        os.remove(file)
+for file in os.listdir():
+    if file.endswith(".session-journal"):
+        os.remove(file)
+
+log_info("Creating client from BOT_TOKEN")
+Arctix = Arctix.start()
+bot_loop = Arctix.loop
+bot_name = Arctix.me.username
+scheduler = AsyncIOScheduler(timezone = str(get_localzone()), event_loop = bot_loop)

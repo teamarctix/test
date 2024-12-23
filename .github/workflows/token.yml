@@ -1,0 +1,35 @@
+name: Create access token via GitHub Apps Workflow
+
+on:
+  workflow_dispatch:
+
+jobs:
+  Test:
+    # The type of runner that the job will run on
+    runs-on: [ self-hosted ]
+
+    steps:
+    - name: "Install gh-token"
+      run: gh extension install Link-/gh-token
+    # Create access token with a GitHub App ID and Key
+    # We use the private key stored as a secret and encode it into base64
+    # before passing it to gh-token
+    - name: "Create access token"
+      run: |
+        token=$(gh token generate \
+          --base64-key $(printf "%s" "$APP_PRIVATE_KEY" | base64 -w 0) \
+          --app-id $APP_ID \
+          --hostname "github.example.com" \
+          | jq -r ".token")
+        echo "token=$token" >> $GITHUB_OUTPUT
+      env:
+        APP_ID: ${{ secrets.APP_ID }}
+        APP_PRIVATE_KEY: ${{ secrets.APP_KEY }}
+    # To test the token we will use it to fetch the list of repositories
+    # belonging to our organization
+    - name: "Fetch organization repositories"
+      run: |
+        curl -X GET \
+          -H "Authorization: token $token" \
+          -H "Accept: application/vnd.github.v3+json" \
+          https://github.example.com/api/v3/orgs/heroku/repos
